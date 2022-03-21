@@ -2,7 +2,7 @@ const {JsonDB} = require('node-json-db');
 const {Config} = require('node-json-db/dist/lib/JsonDBConfig');
 
 const User =class{
-    db;
+    // db;
     constructor(){
         this.db= new JsonDB(new Config("db/database", true, false, "/"));
         this.db.push("/user[]",{},true);

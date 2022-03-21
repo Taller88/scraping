@@ -2,6 +2,8 @@ const Hometax = require("./hometax");
 const {base64Encoding} = require("../common/commonFunc");
 const dotenv = require('dotenv');
 dotenv.config();
+const hometax = new Hometax();
+
 describe("[간편로그인] 정상 function test",()=>{
     
 
@@ -18,7 +20,7 @@ describe("[간편로그인] 정상 function test",()=>{
         const userName = process.env.NAME;
         const birth = process.env.BIRTH
         const userPhone = process.env.PHONENUM
-        const result = await Hometax.prototype.간편로그인(userName, userPhone, birth);
+        const result = await hometax.간편로그인(userName, userPhone, birth);
         console.log(result['resultMsg'])
         expect(result['resultCode']).toEqual(500);
     });
@@ -28,7 +30,7 @@ describe("[간편로그인] 정상 function test",()=>{
         const userName = base64Encoding(process.env.NAME);
         const birth = "19930101"
         const userPhone = "01012341234"
-        const result = await Hometax.prototype.간편로그인(userName, userPhone, birth);
+        const result = await hometax.간편로그인(userName, userPhone, birth);
         console.log(result['resultMsg'])
         expect(result['resultCode']).toBe("401");
     });
