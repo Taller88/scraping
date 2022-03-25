@@ -3,7 +3,10 @@ const express = require('express');
 const User = require('../models/index.js');
 
 const router = express.Router();
+
 const user = new User();
+
+
 router
     .get('/', async(req, res, next)=>{
         const phoneNum = req.query.phoneNum;
